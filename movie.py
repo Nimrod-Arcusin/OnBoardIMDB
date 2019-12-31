@@ -2,6 +2,7 @@ import re
 import csv
 import os
 import time
+from PIL import Image
 from imdb import IMDb
 from config import csv_database_file_path as database
 from config import covers_path as covers
@@ -10,11 +11,16 @@ from config import covers_path as covers
 class Movie:
     imdb = IMDb()
 
-    def __init__(self, path):
-        self.name = self.get_movie_name(path)
-        self.year = self.get_movie_year(path)
-        self.path = path
-        self.imdb_movie = self.get_movie_imdb_information(self.name, self.year)
+    def __init__(self, name):
+        with open(database, 'r', newline='') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            for row in csv_reader:
+                if row['ID'] == name or row['Name'] == name:
+                    self.name = row['Name']
+                    self.year = row['Year']
+                    self.path = row['Path']
+                    self.rating = row['Rating']
+                    self.cover = Image.open(covers + '\\' + row['ID'] + '.jpg')
 
     @staticmethod
     def get_movie_name(path):
@@ -102,8 +108,8 @@ def add_line_to_database(path):
                  'Plot': imdb_info['plot'],
                  'Cover': imdb_info['full-size cover url'],
                  'ID': imdb_info.getID()})
-        download_cover(imdb_info['full-size cover url'],imdb_info.getID())
-        time.sleep(5)
+        download_cover(imdb_info['full-size cover url'], imdb_info.getID())
+        time.sleep(1)
     except:
         return
 
@@ -122,10 +128,25 @@ def update_database():
     for movie in movies_in_dir:
         if movie not in movies_in_database:
             add_line_to_database(movie)
+    for movie in movies_in_database:
+        if movie not in movies_in_dir:
+            add_line_to_database(movie)
+
+
+def get_movies_list():
+    ids = []
+    with open(database, 'r', newline='') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            ids.append(row['ID'])
+    m_l = list(map(Movie, ids))
+    return m_l
 
 
 if not os.path.exists(database):
     create_new_database()
+if not os.path.exists(covers):
+    os.mkdir(covers)
 
 if __name__ == '__main__':
     update_database()
