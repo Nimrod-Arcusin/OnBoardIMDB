@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f029824-5c85-4978-ba4a-b4a445030f21" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Nimrod.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie.py" beforeDir="false" afterPath="$PROJECT_DIR$/movie.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +33,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.movie">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OnBoardIMDB" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -54,8 +58,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="movie" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="OnBoardIMDB" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/movie.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.movie" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -86,37 +112,57 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="424" y="10" key="CommitChangelistDialog2" timestamp="1577555423452">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="424" y="10" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1577555423452" />
     <state x="548" y="171" key="FileChooserDialogImpl" timestamp="1577535601922">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="548" y="171" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1577535601922" />
-    <state width="1515" height="214" key="GridCell.Tab.0.bottom" timestamp="1577533490286">
+    <state width="1515" height="184" key="GridCell.Tab.0.bottom" timestamp="1577555431374">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="214" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1577533490286" />
-    <state width="1515" height="214" key="GridCell.Tab.0.center" timestamp="1577533490286">
+    <state width="1515" height="184" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1577555431374" />
+    <state width="1515" height="184" key="GridCell.Tab.0.center" timestamp="1577555431373">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="214" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1577533490286" />
-    <state width="1515" height="214" key="GridCell.Tab.0.left" timestamp="1577533490286">
+    <state width="1515" height="184" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1577555431373" />
+    <state width="1515" height="184" key="GridCell.Tab.0.left" timestamp="1577555431373">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="214" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1577533490286" />
-    <state width="1515" height="214" key="GridCell.Tab.0.right" timestamp="1577533490286">
+    <state width="1515" height="184" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1577555431373" />
+    <state width="1515" height="184" key="GridCell.Tab.0.right" timestamp="1577555431373">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="214" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1577533490286" />
-    <state x="277" y="59" key="SettingsEditor" timestamp="1577535614547">
+    <state width="1515" height="184" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1577555431373" />
+    <state width="1515" height="265" key="GridCell.Tab.1.bottom" timestamp="1577555431371">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="277" y="59" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1577535614547" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1577533607033">
+    <state width="1515" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1577555431371" />
+    <state width="1515" height="265" key="GridCell.Tab.1.center" timestamp="1577555431371">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1577533607033" />
-    <state x="578" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577544381876">
+    <state width="1515" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1577555431371" />
+    <state width="1515" height="265" key="GridCell.Tab.1.left" timestamp="1577555431371">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="578" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1577544381876" />
+    <state width="1515" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1577555431371" />
+    <state width="1515" height="265" key="GridCell.Tab.1.right" timestamp="1577555431371">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1577555431371" />
+    <state x="277" y="59" key="SettingsEditor" timestamp="1577548144233">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="277" y="59" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1577548144233" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1577803954330">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1577803954330" />
+    <state x="578" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577804501095">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="578" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1577804501095" />
   </component>
 </project>
