@@ -1,7 +1,6 @@
 import re
 import csv
 import os
-import time
 from PIL import Image
 from imdb import IMDb
 from config import csv_database_file_path as database
@@ -114,7 +113,6 @@ def add_line_to_database(path):
                  'Cover': imdb_info['full-size cover url'],
                  'ID': imdb_info.getID()})
         download_cover(imdb_info['full-size cover url'], imdb_info.getID())
-        time.sleep(1)
     except:
         return
 
