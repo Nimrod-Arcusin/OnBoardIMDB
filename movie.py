@@ -20,7 +20,12 @@ class Movie:
                     self.year = row['Year']
                     self.path = row['Path']
                     self.rating = row['Rating']
-                    self.cover = Image.open(covers + '\\' + row['ID'] + '.jpg')
+                    self.id = row['ID']
+                    try:
+                        self.cover = Image.open(covers + '\\' + row['ID'] + '.jpg')
+                    except FileNotFoundError:
+                        download_cover(row['Cover'], str(int(row['ID'])))
+                        self.cover = Image.open(covers + '\\' + str(int(row['ID'])) + '.jpg')
 
     @staticmethod
     def get_movie_name(path):
@@ -87,8 +92,8 @@ def create_new_database():
 
 def download_cover(url, cover_id):
     import urllib.request
-    if not os.path.exists(covers + '\\' + cover_id + '.jpg'):
-        urllib.request.urlretrieve(url, covers + '\\' + cover_id + '.jpg')
+    if not os.path.exists(covers + '\\' + str(int(cover_id)) + '.jpg'):
+        urllib.request.urlretrieve(url, covers + '\\' + str(int(cover_id)) + '.jpg')
 
 
 def add_line_to_database(path):
