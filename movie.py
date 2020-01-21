@@ -1,6 +1,7 @@
 import re
 import csv
 import os
+import time
 from PIL import Image
 from imdb import IMDb
 from config import csv_database_file_path as database
@@ -19,6 +20,7 @@ class Movie:
                     self.year = row['Year']
                     self.path = row['Path']
                     self.rating = row['Rating']
+                    self.date = row['Date']
                     self.id = row['ID']
                     try:
                         self.cover = Image.open(covers + '\\' + row['ID'] + '.jpg')
@@ -85,7 +87,7 @@ def get_all_movies():
 
 def create_new_database():
     file = open(database, 'w+')
-    file.write('Name,Year,Rating,Path,Genres,Plot,Cover,ID\n')
+    file.write('Name,Year,Rating,Date,Path,Genres,Plot,Cover,ID\n')
     file.close()
 
 
@@ -93,6 +95,7 @@ def download_cover(url, cover_id):
     import urllib.request
     if not os.path.exists(covers + '\\' + str(int(cover_id)) + '.jpg'):
         urllib.request.urlretrieve(url, covers + '\\' + str(int(cover_id)) + '.jpg')
+        print(covers + '\\' + str(int(cover_id)) + '.jpg', "cover downloaded")
 
 
 def add_line_to_database(path):
@@ -101,20 +104,36 @@ def add_line_to_database(path):
         year = Movie.get_movie_year(path)
         imdb_info = Movie.get_movie_imdb_information(name, year)
         with open(database, 'a', newline='') as csv_file:
-            colons = ['Name', 'Year', 'Rating', 'Path', 'Genres', 'Plot', 'Cover', 'ID']
+            colons = ['Name', 'Year', 'Rating', 'Date', 'Path', 'Genres', 'Plot', 'Cover', 'ID']
             csv_writer = csv.DictWriter(csv_file, fieldnames=colons)
             csv_writer.writerow(
                 {'Name': name,
                  'Year': year,
                  'Rating': imdb_info['rating'],
+                 'Date': os.path.getctime(path),
                  'Path': path,
                  'Genres': imdb_info['genres'],
                  'Plot': imdb_info['plot'],
                  'Cover': imdb_info['full-size cover url'],
                  'ID': imdb_info.getID()})
         download_cover(imdb_info['full-size cover url'], imdb_info.getID())
+        print(name + " added to database")
     except:
         return
+
+
+def remove_line_to_database(path):
+    file = open(database, 'r')
+    data = file.readlines()
+    file.close()
+    new_data = []
+    for m in data:
+        if path not in m:
+            new_data.append(m)
+    file = open(database, 'w+')
+    file.writelines(new_data)
+    file.close()
+    print(Movie.get_movie_name(path) + "not in path, file deleted from database")
 
 
 def update_database():
@@ -128,11 +147,11 @@ def update_database():
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             movies_in_database.append(row['Path'])
-    for movie in movies_in_dir:
-        if movie not in movies_in_database:
-            add_line_to_database(movie)
     for movie in movies_in_database:
         if movie not in movies_in_dir:
+            remove_line_to_database(movie)
+    for movie in movies_in_dir:
+        if movie not in movies_in_database:
             add_line_to_database(movie)
 
 
